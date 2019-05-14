@@ -27,9 +27,7 @@ while [[ -n $1 ]]; do
 
 done
 
-
-
-for f in $(find . -type f); do
+for f in $(find . -maxdepth 1 -type f ! -samefile ${0}); do
     f="$(echo $f | sed 's/.\///g')"
     if [[ $FORCE == 1 ]] || [[ ! -e "$HOME/.$f" ]]; then
         ln -sf "$PWD/$f" "$HOME/.$f"
