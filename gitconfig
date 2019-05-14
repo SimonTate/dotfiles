@@ -1,0 +1,13 @@
+[user]
+	email = state@Airspan.com
+	name = Simon Tate
+[core]
+	editor = vim
+[diff]
+	tool = gvimdiff
+[alias]
+	url = config --get remote.origin.url
+    sh = show
+    cp = cherry-pick
+    # branch age
+    bage = for-each-ref --sort=authordate --format '%(authordate:iso) %(align:left,25)%(refname:short)%(end) %(subject)' refs/heads 

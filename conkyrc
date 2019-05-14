@@ -1,0 +1,54 @@
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 1
+total_run_times 0
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_colour 000000
+own_window_argb_visual no
+own_window_argb_value 0
+
+double_buffer yes
+#minimum_size 250 500
+#maximum_width 500
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color white
+default_shade_color red
+default_outline_color green
+alignment bottom_right
+gap_x 100
+gap_y 200
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer left
+color0 white
+color1 EAEAEA
+color2 FFA300
+color3 grey
+color4 green
+color5 orange
+
+
+minimum_size 0 0
+TEXT
+${voffset 10}
+${cpugraph cpu1 50,100}${cpugraph cpu2 50,100}${cpugraph cpu3 50,100}${cpugraph cpu4 50,100} ${voffset 50}
+${cpugraph cpu5 50,100}${cpugraph cpu6 50,100}${cpugraph cpu7 50,100}${cpugraph cpu8 50,100}
+#${font Ubuntu:size=12}${voffset -110}${color3}${goto 10}1 ${goto 110}2 ${goto 210}3 ${goto 0} ${goto 310}4 ${voffset 50}${goto 10}5 ${goto 110}6 ${goto 210}7 ${goto 310}8
+#${font Ubuntu:size=12}${voffset -67}${color3}${goto 58}${freq_g (1)}GHz ${goto 158}${freq_g (2)}GHz ${goto 258}${freq_g (3)}GHz ${goto 0} ${goto 358}${freq_g (4)}GHz ${voffset 50}${goto 58}${freq_g (5)}GHz ${goto 158}${freq_g (6)}GHz ${goto 258}${freq_g (7)}GHz ${goto 358}${freq_g (8)}GHz
+
+${color}${voffset 20}${offset 12}${font Ubuntu:pixelsize=50}${color4}state${color}@${color5}${nodename}${color}
+${voffset 10}${color EAEAEA}${font GE Inspira:pixelsize=120}${time %H:%M}${font}${voffset -84}${offset 10}${color FFA300}${font GE Inspira:pixelsize=42}${time %d} ${voffset -15}${color EAEAEA}${font GE Inspira:pixelsize=22}${time  %B} ${time %Y}${font}${voffset 24}${font GE Inspira:pixelsize=58}${offset -148}${time %A}${font}
+${voffset 1}${offset 12}${font Ubuntu:pixelsize=12}${color FFA300}HD ${offset 9}$color${fs_free /} / ${fs_size /}${offset 30}${color FFA300}RAM ${offset 9}$color$mem / $memmax${offset 30}
+
+${offset 12}${color2}CPU ${color0} ${cpu cpu0}% ${cpubar cpu0 10,} ${offset 12}${cpugraph cpu0 100,100} ${voffset -19}
