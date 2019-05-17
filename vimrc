@@ -21,14 +21,29 @@ set tags=./tags;,tags;
 :let mapleader=","
 
 fun! GitCommand(command)
-    silent! !clear
+ "   silent! !clear
     let tmpfile = tempname()
     exec "!git " . a:command . " % > " . tmpfile
     exec "vsplit " . tmpfile
-    exec "!rm " . tmpfile
+"    exec "!rm " . tmpfile
 endfun 
 
+fun! CHeader()
+    let file = expand('%:r') . ".h"
+    if filereadable(file)
+        exec ":e " . file
+    endif    
+endfun
 
-map <leader>b :call GitCommand("blame") <CR>
+fun! CSource()
+    let file = expand('%:r') . ".c"
+    if filereadable(file)
+        exec ":e " . file
+    endif
+endfun
 
 
+map <leader>b :silent :call GitCommand("blame") <CR>
+map <leader>reu oReuse-Change-Id: <ESC>
+map <leader>h :call CHeader() <CR>
+map <leader>c :call CSource() <CR>
