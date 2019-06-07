@@ -39,6 +39,7 @@ alias test-board='cd ~/synergy/apps/build/test-board/'
 alias test-board2='cd ~/synergy-2/apps/build/test-board/'
 alias airunitysc='cd ~/synergy/apps/build/airunitysc/'
 alias airunitygct='cd ~/synergy/apps/build/airunitygct/'
+alias airunitygct2='cd ~/synergy-2/apps/build/airunitygct/'
 alias cls='printf "\033c"'
 alias cpt='~/scripts/copy_through.sh'
 alias sudo='sudo ' # allow sudo to use aliases
@@ -85,3 +86,5 @@ alias pause='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/
 alias next='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next'
 alias previous='dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous'
 
+alias ukexternal='cd /mnt/fs23/SoftwareReleases/EMB/_UK\ External'
+alias ukinternal='cd /mnt/fs23/SoftwareReleases/EMB/_UK\ Internal'
