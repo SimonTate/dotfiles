@@ -48,7 +48,7 @@ ${offset 150}${cpugraph cpu5 50,100}${cpugraph cpu6 50,100}${cpugraph cpu7 50,10
 #${font Ubuntu:size=12}${voffset -67}${color3}${goto 58}${freq_g (1)}GHz ${goto 158}${freq_g (2)}GHz ${goto 258}${freq_g (3)}GHz ${goto 0} ${goto 358}${freq_g (4)}GHz ${voffset 50}${goto 58}${freq_g (5)}GHz ${goto 158}${freq_g (6)}GHz ${goto 258}${freq_g (7)}GHz ${goto 358}${freq_g (8)}GHz
 
 ${color}${voffset 20}${offset 12}${font Ubuntu:pixelsize=50}${color4}state${color}@${color5}${nodename}${color}
-${voffset 10}${color0}${font GE Inspira:pixelsize=120}${time %H:%M}${font}${voffset -84}${offset 10}${color0}${font GE Inspira:pixelsize=42}${time %d} ${voffset -15}${color0}${font GE Inspira:pixelsize=22}${time  %B} ${time %Y}${font}${voffset 24}${font GE Inspira:pixelsize=58}${offset -148}${time %A}${font}
+${voffset 10}${color0}${font Ubuntu:pixelsize=120}${time %H:%M}${font}${voffset -84}${offset 10}${color0}${font Ubuntu:pixelsize=42}${time %d} ${voffset -15}${color0}${font Ubuntu:pixelsize=22}${time  %B} ${time %Y}${font}${voffset 24}${font Ubuntu:pixelsize=58}${offset -148}${time %A}${font}
 ${voffset 1}${offset 12}${font Ubuntu:pixelsize=12}${color0}HD ${offset 9}$color${fs_free /} / ${fs_size /}${offset 30}${color0}RAM ${offset 9}$color$mem / $memmax${offset 30}
 
 ${offset 12}${color2}CPU ${color0} ${cpu cpu0}% ${cpubar cpu0 10,} ${offset 12}${cpugraph cpu0 100,100} ${voffset -19}
