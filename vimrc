@@ -28,22 +28,49 @@ fun! GitCommand(command)
 "    exec "!rm " . tmpfile
 endfun 
 
-fun! CHeader()
+fun! CHeader(command)
     let file = expand('%:r') . ".h"
     if filereadable(file)
-        exec ":e " . file
+        exec a:command . " " . file
+    else
+        echom "Couldn't find header file"
     endif    
 endfun
 
-fun! CSource()
+fun! CSource(command)
     let file = expand('%:r') . ".c"
     if filereadable(file)
-        exec ":e " . file
-    endif
+        exec a:command . " " . file
+    elseif filereadable(file + "pp")
+        exec a:command . " " . file . "pp"
+    else
+        echom "Couldn't find C file"
+    endif 
 endfun
 
+" Git status bar
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set laststatus=2
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%=
+set statusline+=%#CursorColumn#
 
 map <leader>b :silent :call GitCommand("blame") <CR>
 map <leader>reu oReuse-Change-Id: <ESC>
-map <leader>h :call CHeader() <CR>
-map <leader>c :call CSource() <CR>
+map <leader>h :call CHeader(":e") <CR>
+map <leader>c :call CSource(":e") <CR>
+map <leader>vsph :call CHeader(":vsp") <CR>
+map <leader>vspc :call CHeader(":vsp") <CR>
