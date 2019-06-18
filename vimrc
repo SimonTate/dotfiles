@@ -20,11 +20,11 @@ set tags=./tags;,tags;
 " Git control
 :let mapleader=","
 
-fun! GitCommand(command)
+fun! GitCommand(command, window)
  "   silent! !clear
     let tmpfile = tempname()
     exec "!git " . a:command . " % > " . tmpfile
-    exec "vsplit " . tmpfile
+    exec a:window . " " . tmpfile
 "    exec "!rm " . tmpfile
 endfun 
 
@@ -68,7 +68,8 @@ set statusline+=%m
 set statusline+=%=
 set statusline+=%#CursorColumn#
 
-map <leader>b :silent :call GitCommand("blame") <CR>
+map <leader>b :silent :call GitCommand("blame", ":vsp") <CR>
+map <leader>n :silent :call GitCommand("blame", ":e") <CR>
 map <leader>reu oReuse-Change-Id: <ESC>
 map <leader>h :call CHeader(":e") <CR>
 map <leader>c :call CSource(":e") <CR>
