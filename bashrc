@@ -165,3 +165,6 @@ export MAKEFLAGS="-j 6 -l 20"
 
 #### make core ACTUALLY dump ####
 ulimit -c unlimited
+
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

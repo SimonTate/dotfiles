@@ -1,3 +1,3 @@
 highlight Comment ctermfg=green
-set guifont=Ubuntu\ Mono\ 12
+set guifont=Monospace\ 10
 colorscheme default

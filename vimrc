@@ -1,4 +1,3 @@
-highlight Comment ctermfg=green
 set number
 " Tab length control
 set tabstop=4
@@ -6,6 +5,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+colorscheme darkblue 
+
+highlight Comment ctermfg=green
 " ignore case on search
 " https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim?rq=1
 set ignorecase
@@ -41,7 +43,7 @@ fun! CSource(command)
     let file = expand('%:r') . ".c"
     if filereadable(file)
         exec a:command . " " . file
-    elseif filereadable(file + "pp")
+    elseif filereadable(file . "pp")
         exec a:command . " " . file . "pp"
     else
         echom "Couldn't find C file"
@@ -73,5 +75,10 @@ map <leader>n :silent :call GitCommand("blame", ":e") <CR>
 map <leader>reu oReuse-Change-Id: <ESC>
 map <leader>h :call CHeader(":e") <CR>
 map <leader>c :call CSource(":e") <CR>
-map <leader>vsph :call CHeader(":vsp") <CR>
-map <leader>vspc :call CHeader(":vsp") <CR>
+map <leader>vsph :call CHeader(":vsp") <cr>
+map <leader>vspc :call CSource(":vsp") <cr>
+map <leader>sph :call CHeader(":sp") <cr>
+map <leader>spc :call CSource(":sp") <cr>
+map <leader>light :colorscheme default<cr>
+map <leader>dark :colorscheme darkblue<cr>
+
