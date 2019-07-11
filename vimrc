@@ -8,7 +8,7 @@ set expandtab
 colorscheme darkblue 
 
 highlight Comment ctermfg=green
-" ignore case on search
+"ignore case on search
 " https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim?rq=1
 set ignorecase
 set smartcase
@@ -60,6 +60,34 @@ function! StatuslineGit()
   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
+function! GetCommentCharacter()
+    let comment = ""
+    if &filetype ==# "cpp" || &filetype ==# "c"
+        let comment="//"
+    elseif &filetype ==# "vim"
+        let comment='"'
+    elseif &filetype ==# "sh"
+        let comment='#'
+    else
+        echom "Unrecognised filtype : " . &filetype
+    endif
+    return comment
+endfunction
+
+function! Comment()
+    let comment = GetCommentCharacter()
+    if comment != ""
+        exec ":norm ^i" . comment
+    endif
+endfunction
+
+function! UnComment()
+    let comment = GetCommentCharacter()
+    if comment != ""
+        exec ":norm ^x"
+    endif
+endfunction
+
 set laststatus=2
 set statusline=
 set statusline+=%#PmenuSel#
@@ -81,4 +109,9 @@ map <leader>sph :call CHeader(":sp") <cr>
 map <leader>spc :call CSource(":sp") <cr>
 map <leader>light :colorscheme default<cr>
 map <leader>dark :colorscheme darkblue<cr>
+" Conflict finder 
+map <leader>x /^<<<<<<<<cr> 
+map <leader>\ :call Comment()<cr> 
+map <leader>` :call UnComment()<cr> 
+
 
