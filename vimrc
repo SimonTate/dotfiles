@@ -5,6 +5,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+set autoread
 colorscheme darkblue 
 
 highlight Comment ctermfg=green
@@ -62,7 +63,7 @@ endfunction
 
 function! GetCommentCharacter()
     let comment = ""
-    if &filetype ==# "cpp" || &filetype ==# "c"
+    if &filetype ==# "cpp" || &filetype ==# "c" || &filetype ==# "javascript"
         let comment="//"
     elseif &filetype ==# "vim"
         let comment='"'
@@ -84,7 +85,7 @@ endfunction
 function! UnComment()
     let comment = GetCommentCharacter()
     if comment != ""
-        exec ":norm ^x"
+        exec ":norm ^" . strlen(comment) . "x"
     endif
 endfunction
 
