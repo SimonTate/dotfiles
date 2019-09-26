@@ -1,15 +1,33 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Additional Plugins
+Plugin 'vim-airline/vim-airline'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 set number
+
 " Tab length control
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
 
 set autoread
 colorscheme darkblue 
 
 highlight Comment ctermfg=green
-"ignore case on search
+
+" ignore case on search
 " https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim?rq=1
 set ignorecase
 set smartcase
