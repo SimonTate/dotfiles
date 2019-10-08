@@ -1,3 +1,6 @@
+
+
+"" START VUNDLE
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -14,6 +17,7 @@ Plugin 'vim-airline/vim-airline'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+"" END VUNDLE
 
 set number
 
@@ -22,24 +26,19 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
+" Auto reload
 set autoread
-colorscheme darkblue 
+colorscheme darkblue
 
 highlight Comment ctermfg=green
 
-" ignore case on search
-" https://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim?rq=1
+" Ignore case on search - if using lowercase
 set ignorecase
 set smartcase
 
-" set the tags dir
+" Set tags to be first tags file on way back to ~
 set tags=./tags;,tags;
 
-" Aliases
-:command Q q!
-
-" Git control
-:let mapleader=","
 
 fun! GitCommand(command, window)
  "   silent! !clear
@@ -47,7 +46,7 @@ fun! GitCommand(command, window)
     exec "!git " . a:command . " % > " . tmpfile
     exec a:window . " " . tmpfile
 "    exec "!rm " . tmpfile
-endfun 
+endfun
 
 fun! CHeader(command)
     let file = expand('%:r') . ".h"
@@ -55,7 +54,7 @@ fun! CHeader(command)
         exec a:command . " " . file
     else
         echom "Couldn't find header file"
-    endif    
+    endif
 endfun
 
 fun! CSource(command)
@@ -66,7 +65,7 @@ fun! CSource(command)
         exec a:command . " " . file . "pp"
     else
         echom "Couldn't find C file"
-    endif 
+    endif
 endfun
 
 " Git status bar
@@ -117,6 +116,8 @@ set statusline+=%m
 set statusline+=%=
 set statusline+=%#CursorColumn#
 
+" Easy shortcuts
+:let mapleader=","
 map <leader>b :silent :call GitCommand("blame", ":vsp") <CR>
 map <leader>n :silent :call GitCommand("blame", ":e") <CR>
 map <leader>reu oReuse-Change-Id: <ESC>
@@ -128,9 +129,19 @@ map <leader>sph :call CHeader(":sp") <cr>
 map <leader>spc :call CSource(":sp") <cr>
 map <leader>light :colorscheme default<cr>
 map <leader>dark :colorscheme darkblue<cr>
-" Conflict finder 
-map <leader>x /^<<<<<<<<cr> 
-map <leader>\ :call Comment()<cr> 
-map <leader>` :call UnComment()<cr> 
+" Conflict finder
+map <leader>x /^<<<<<<<<cr>
+" Commenter
+map <leader>\ :call Comment()<cr>
+map <leader>` :call UnComment()<cr>
 
+" Show tabs and nbsp's
+set list
+set listchars=tab:>-,nbsp:⎵
+
+" Show trailing whitespace as error
+match Error /\s\+$/
+
+" Auto strip white space from files
+autocmd BufWritePre * %s/\s\+$//e
 
