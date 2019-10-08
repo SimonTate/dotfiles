@@ -14,7 +14,6 @@ alias ls='ls --color=auto'
 alias open='xdg-open'
 alias untar='echo "tar -xzf"; tar -xvf'
 alias untarz='echo "tar -vzxf"; tar -vzxf'
-alias ws='sshpass -p localadmin ssh -t ws 'wireshark''
 
 alias cls='clear; ls'
 alias cls='printf "\033c"'
