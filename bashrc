@@ -49,12 +49,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -68,8 +68,8 @@ gitbranch() {
   local branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
   local branch_count=$(echo -n "$branch" | wc -w)
   if [[ $branch_count -ge 1 ]]; then
-    if [ "$branch" == "master" ]; then
-	echo -ne "\e[41m$branch\e[49m"
+    if [ "$branch" == "master" ] || [ "$branch" == "develop" ]; then
+        echo -ne "\e[41m$branch\e[49m"
     else
         echo -n "$branch"
     fi
@@ -152,7 +152,7 @@ stty -ixon
 
 #########################
 # git PS1
-export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(jobscount)($(gitbranch))\n\$ '
+export PS1='\e[41mbash\e[49m\$${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(jobscount)($(gitbranch))\n$ '
 
 #PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 
