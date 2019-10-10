@@ -1,23 +1,23 @@
+if filereadable(expand("~/.vim/bundle/Vundle.vim/README.md"))
+    "" START VUNDLE
+    set nocompatible              " be iMproved, required
+    filetype off                  " required
 
+    " set the runtime path to include Vundle and initialize
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 
-"" START VUNDLE
-set nocompatible              " be iMproved, required
-filetype off                  " required
+    " let Vundle manage Vundle, required
+    Plugin 'VundleVim/Vundle.vim'
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+    " Additional Plugins
+    Plugin 'vim-airline/vim-airline'
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Additional Plugins
-Plugin 'vim-airline/vim-airline'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-"" END VUNDLE
+    " All of your Plugins must be added before the following line
+    call vundle#end()            " required
+    filetype plugin indent on    " required
+    "" END VUNDLE
+endif
 
 set number
 
