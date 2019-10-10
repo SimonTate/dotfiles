@@ -1,7 +1,3 @@
-##### ea - alias for editing aliases
-#
-#When setting up a new aliases file, or having creating a new file.. About every time after editing an aliases file, I source it. This alias makes editing alias a
-#
 alias ea='vi ~/.bash_aliases; source ~/.bashrc && echo "aliases sourced  --ok."'
 alias eb='vi ~/.bashrc; source ~/.bashrc && echo "aliases sourced --ok."'
 #
@@ -10,7 +6,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias egrep='LC_ALL=C egrep --color=auto'
 alias fgrep='LC_ALL=C fgrep --color=yes'
 alias grep='LC_ALL=C grep --color=auto'
-alias ls='ls --color=auto'
+
 alias open='xdg-open'
 alias untar='echo "tar -xzf"; tar -xvf'
 alias untarz='echo "tar -vzxf"; tar -vzxf'
@@ -31,3 +27,8 @@ alias :wq='exit'
 alias :Q='exit'
 alias :wq!='exit'
 
+if [[ "$OSTYPE" == "darwin"* ]] then
+	alias ls='ls -G'
+else
+	alias ls='ls --color=auto'
+fi
