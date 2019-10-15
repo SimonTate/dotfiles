@@ -1,3 +1,4 @@
+
 if filereadable(expand("~/.vim/bundle/Vundle.vim/README.md"))
     "" START VUNDLE
     set nocompatible              " be iMproved, required
@@ -12,6 +13,8 @@ if filereadable(expand("~/.vim/bundle/Vundle.vim/README.md"))
 
     " Additional Plugins
     Plugin 'vim-airline/vim-airline'
+    Plugin 'rust-lang/rust.vim'
+    Plugin 'cmcaine/vim-uci'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -137,7 +140,7 @@ map <leader>` :call UnComment()<cr>
 
 " Show tabs and nbsp's
 set list
-set listchars=tab:>-,nbsp:⎵
+set listchars=tab:>-
 
 " Show trailing whitespace as error
 match Error /\s\+$/
