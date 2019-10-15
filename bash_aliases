@@ -27,7 +27,7 @@ alias :wq='exit'
 alias :Q='exit'
 alias :wq!='exit'
 
-if [[ "$OSTYPE" == "darwin"* ]] then
+if [[ "$OSTYPE" == "darwin"* ]]; then
 	alias ls='ls -G'
 else
 	alias ls='ls --color=auto'
