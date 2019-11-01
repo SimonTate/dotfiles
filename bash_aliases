@@ -32,3 +32,5 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
 	alias ls='ls --color=auto'
 fi
+
+alias proxies="[[ -e $HOME/scripts/aliases/proxies.sh ]] &&	source $HOME/scripts/aliases/proxies.sh"
