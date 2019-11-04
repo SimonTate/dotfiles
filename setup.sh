@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[[ ! -e bashrc ]] && echo "Must be ran in dotfiles directory." && exit 255;
+cd $(dirname $0) # move to base dir
 [[ -z $HOME ]] && echo "HOME must be set." && exit 255;
 
 function usage {
@@ -8,8 +8,6 @@ function usage {
     echo "      -h|--help ........ display this text"
     echo "      -f|--force ....... forces copy of dotfiles - even if they exist"
 }
-
-
 
 FORCE=0
 PWD=$(pwd)
@@ -24,11 +22,11 @@ while [[ -n $1 ]]; do
             exit
             ;;
     esac
-
 done
 
-for f in $(find . -maxdepth 1 -type f ! -samefile ${0}); do
-    f="$(echo $f | sed 's/.\///g')"
+cd files/
+for f in $(find . -maxdepth 1 -type f); do
+	f="$(echo $f | sed 's/.\///g')"
     if [[ $FORCE == 1 ]] || [[ ! -e "$HOME/.$f" ]]; then
         ln -sf "$PWD/$f" "$HOME/.$f"
     else
