@@ -7,7 +7,6 @@ alias egrep='LC_ALL=C egrep --color=auto'
 alias fgrep='LC_ALL=C fgrep --color=yes'
 alias grep='LC_ALL=C grep --color=auto'
 
-alias open='xdg-open'
 alias untar='echo "tar -xzf"; tar -xvf'
 alias untarz='echo "tar -vzxf"; tar -vzxf'
 
@@ -31,6 +30,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	alias ls='ls -G'
 else
 	alias ls='ls --color=auto'
+	alias open='xdg-open'
 fi
 
 alias proxies="[[ -e $HOME/scripts/aliases/proxies.sh ]] &&	source $HOME/scripts/aliases/proxies.sh"
