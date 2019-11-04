@@ -15,18 +15,18 @@ while [[ -n $1 ]]; do
     case "$1" in
         -f|--force)
             FORCE=1
-            shift
             ;;
         *)
             usage
             exit
             ;;
     esac
+    shift
 done
 
 cd files/
 for f in $(find . -maxdepth 1 -type f); do
-	f="$(echo $f | sed 's/.\///g')"
+    f="$(echo $f | sed 's/.\///g')"
     if [[ $FORCE == 1 ]] || [[ ! -e "$HOME/.$f" ]]; then
         ln -sf "$PWD/$f" "$HOME/.$f"
     else
