@@ -138,8 +138,8 @@ map <leader>x /^<<<<<<<<cr>
 map <leader>\ :call Comment()<cr>
 map <leader>` :call UnComment()<cr>
 
-" Show tabs and nbsp's
-set list
+" Show tabs when "set list" is used
+set nolist
 set listchars=tab:>-
 
 " Show trailing whitespace as error
