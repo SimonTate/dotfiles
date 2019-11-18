@@ -34,7 +34,9 @@ else
 fi
 
 alias proxies="[[ -e $HOME/scripts/aliases/proxies.sh ]] &&	source $HOME/scripts/aliases/proxies.sh"
-alias curl_proxies="[[ -e $HOME/scripts/aliases/proxies.sh ]] && source $HOME/scripts/aliases/curl_proxies.sh"
+alias curl-proxies="[[ -e $HOME/scripts/aliases/proxies.sh ]] && source $HOME/scripts/aliases/curl_proxies.sh"
 
 alias curl="[[ -e $HOME/scripts/aliases/curl_proxies.sh ]] && source $HOME/scripts/aliases/curl_proxies.sh; curl"
+alias node="[[ -e $HOME/scripts/aliases/curl_proxies.sh ]] && source $HOME/scripts/aliases/curl_proxies.sh; node"
+alias npm="[[ -e $HOME/scripts/aliases/curl_proxies.sh ]] && source $HOME/scripts/aliases/curl_proxies.sh; npm"
 
