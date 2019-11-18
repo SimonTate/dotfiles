@@ -87,7 +87,7 @@ function! GetCommentCharacter()
         let comment="//"
     elseif &filetype ==# "vim"
         let comment='"'
-    elseif &filetype ==# "sh"
+    elseif &filetype ==# "sh" || &filetype ==# "python"
         let comment='#'
     else
         echom "Unrecognised filtype : " . &filetype
@@ -137,6 +137,9 @@ map <leader>x /^<<<<<<<<cr>
 " Commenter
 map <leader>\ :call Comment()<cr>
 map <leader>` :call UnComment()<cr>
+
+" Replace line with buffer
+map <leader>rr :normal pkddyy<cr>
 
 " Show tabs when "set list" is used
 set nolist

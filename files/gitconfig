@@ -3,10 +3,10 @@
 [diff]
 	tool = vimdiff
 [alias]
-	url = config --get remote.origin.url
+	url = remote -v
 	sh = show
 	cp = cherry-pick
-
+	clean-all = clean -f -d -x; git reset --hard
 	# branch age
 	bage = for-each-ref --sort=authordate --format '%(authordate:iso) %(align:left,25)%(refname:short)%(end) %(subject)' refs/heads
 [difftool]
