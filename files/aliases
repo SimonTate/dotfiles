@@ -1,8 +1,9 @@
-alias ea='vi ~/.bash_aliases; source ~/.bashrc && echo "aliases sourced  --ok."'
-alias eb='vi ~/.bashrc; source ~/.bashrc && echo "aliases sourced --ok."'
-#
-alias findhere='f(){ find "." -name "*$1*"; unset -f f;}; f'
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+#!/bin/bash
+
+alias ea='vi ~/.aliases; source ~/.aliases && echo "aliases sourced  --ok."'
+alias eb='vi ~/.bashrc; source ~/.bashrc && echo "bash rc sourced --ok."'
+alias ez='vi ~/.zshrc; source ~/.zshrc && echo "zsh sourced --ok."'
+
 alias egrep='LC_ALL=C egrep --color=auto'
 alias fgrep='LC_ALL=C fgrep --color=yes'
 alias grep='LC_ALL=C grep --color=auto'
@@ -10,13 +11,10 @@ alias grep='LC_ALL=C grep --color=auto'
 alias untar='echo "tar -xzf"; tar -xvf'
 alias untarz='echo "tar -vzxf"; tar -vzxf'
 
-alias cls='clear; ls'
 alias cls='printf "\033c"'
 alias sudo='sudo ' # allow sudo to use aliases
 alias ip='ip -c' # use color ip
 
-# backwards ls
-alias sl="ls  | tr '\n' ' '  | rev; echo"
 
 alias cwd='printf "%q\n" "$(pwd)"'
 
@@ -33,10 +31,19 @@ else
 	alias open='xdg-open'
 fi
 
+alias l='ls'
+
 alias proxies="[[ -e $HOME/scripts/aliases/proxies.sh ]] &&	source $HOME/scripts/aliases/proxies.sh"
 alias curl-proxies="[[ -e $HOME/scripts/aliases/proxies.sh ]] && source $HOME/scripts/aliases/curl_proxies.sh"
 
 alias curl="[[ -e $HOME/scripts/aliases/curl_proxies.sh ]] && source $HOME/scripts/aliases/curl_proxies.sh; curl"
 alias node="[[ -e $HOME/scripts/aliases/curl_proxies.sh ]] && source $HOME/scripts/aliases/curl_proxies.sh; node"
 alias npm="[[ -e $HOME/scripts/aliases/curl_proxies.sh ]] && source $HOME/scripts/aliases/curl_proxies.sh; npm"
+alias review='vim -c "set list"'
+alias mod='stat -c "%a %n"'
+alias mode='mod'
+alias unpa='[[ -x $HOME/scripts/aliases/unpack_all.sh ]] && $HOME/scripts/aliases/unpack_all.sh'
+alias mkdir='mkdir -p'
 
+alias gc='git checkout'
+alias gp='git pull'
