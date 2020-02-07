@@ -151,3 +151,4 @@ match Error /\s\+$/
 " Auto strip white space from files
 autocmd BufWritePre * %s/\s\+$//e
 
+set backspace=indent,eol,start
