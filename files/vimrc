@@ -158,3 +158,4 @@ set foldmethod=syntax
 " auto open fold
 set foldlevel=99
 
+set backspace=indent,eol,start
