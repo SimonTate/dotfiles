@@ -87,7 +87,7 @@ function! GetCommentCharacter()
         let comment="//"
     elseif &filetype ==# "vim"
         let comment='"'
-    elseif &filetype ==# "sh" || &filetype ==# "python"
+    elseif &filetype ==# "sh" || &filetype ==# "python" || &filetype ==# "sshconfig" || &filetype ==# "yaml"
         let comment='#'
     else
         echom "Unrecognised filtype : " . &filetype
@@ -143,12 +143,19 @@ map <leader>rr :normal pkddyy<cr>
 
 " Show tabs when "set list" is used
 set nolist
-set listchars=tab:>-
+set listchars=tab:>.
 
 " Show trailing whitespace as error
 match Error /\s\+$/
 
-" Auto strip white space from files
-autocmd BufWritePre * %s/\s\+$//e
+" Auto strip / delete white space from files
+"autocmd BufWritePre * %s/\s\+$//e
+
+" folding - open folds with zo close with zc
+" zr reduces fold depth
+" zm increases fold depth
+set foldmethod=syntax
+" auto open fold
+set foldlevel=99
 
 set backspace=indent,eol,start
