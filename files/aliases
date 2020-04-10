@@ -1,5 +1,6 @@
 #!/bin/bash
 
+alias pw='pbcopy < ~/Developer/password'
 alias ea='vi ~/.aliases; source ~/.aliases && echo "aliases sourced  --ok."'
 alias eb='vi ~/.bashrc; source ~/.bashrc && echo "bash rc sourced --ok."'
 alias ez='vi ~/.zshrc; source ~/.zshrc && echo "zsh sourced --ok."'
@@ -25,6 +26,9 @@ alias :Q='exit'
 alias :wq!='exit'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
+	alias play='/Volumes/Developer/scripts/spotify/play.script'
+	alias pause='/Volumes/Developer/scripts/spotify/pause.script'
+	alias ind='cd /Volumes/Developer/indigo/'
 	alias ls='ls -G'
 else
 	alias ls='ls --color=auto'
@@ -32,6 +36,7 @@ else
 fi
 
 alias l='ls'
+alias ll='ls -lsah'
 
 alias proxies="[[ -e $HOME/scripts/aliases/proxies.sh ]] &&	source $HOME/scripts/aliases/proxies.sh"
 alias curl-proxies="[[ -e $HOME/scripts/aliases/proxies.sh ]] && source $HOME/scripts/aliases/curl_proxies.sh"

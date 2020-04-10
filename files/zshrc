@@ -20,7 +20,7 @@ zstyle ':vcs_info:git:*' formats '%b'
 
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-PROMPT='${BOLD_YELLOW}zsh\$${RESET}${BOLD_GREEN}%n${RESET}:${BOLD_BLUE}${PWD/#$HOME/~}${RESET}(${BOLD_RED}${vcs_info_msg_0_}${RESET}) ${prompt_newline}$ '
+PROMPT='${BOLD_GREEN}%n${RESET}@${BOLD_MAGENTA}%m${RESET}:${BOLD_BLUE}${PWD/#$HOME/~}${RESET}(${BOLD_RED}${vcs_info_msg_0_}${RESET}) ${prompt_newline}$ '
 
 setopt histignorealldups sharehistory
 

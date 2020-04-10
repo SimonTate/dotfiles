@@ -15,6 +15,7 @@ if filereadable(expand("~/.vim/bundle/Vundle.vim/README.md"))
     Plugin 'vim-airline/vim-airline'
     Plugin 'rust-lang/rust.vim'
     Plugin 'cmcaine/vim-uci'
+	"Plugin 'zah/nim.vim'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -91,6 +92,7 @@ function! GetCommentCharacter()
         let comment='#'
     else
         echom "Unrecognised filtype : " . &filetype
+        let comment='#'
     endif
     return comment
 endfunction
@@ -149,7 +151,7 @@ set listchars=tab:>.
 match Error /\s\+$/
 
 " Auto strip / delete white space from files
-"autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * %s/\s\+$//e
 
 " folding - open folds with zo close with zc
 " zr reduces fold depth
