@@ -15,7 +15,6 @@ if filereadable(expand("~/.vim/bundle/Vundle.vim/README.md"))
     Plugin 'vim-airline/vim-airline'
     Plugin 'rust-lang/rust.vim'
     Plugin 'cmcaine/vim-uci'
-	"Plugin 'zah/nim.vim'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -23,16 +22,18 @@ if filereadable(expand("~/.vim/bundle/Vundle.vim/README.md"))
     "" END VUNDLE
 endif
 
-set number
+set relativenumber
 
 " Tab length control
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+" Use spaces
+set expandtab
 
 " Auto reload
 set autoread
-colorscheme darkblue
+colorscheme default
 
 highlight Comment ctermfg=green
 
@@ -144,14 +145,14 @@ map <leader>` :call UnComment()<cr>
 map <leader>rr :normal pkddyy<cr>
 
 " Show tabs when "set list" is used
-set nolist
+set list
 set listchars=tab:>.
 
 " Show trailing whitespace as error
 match Error /\s\+$/
 
 " Auto strip / delete white space from files
-autocmd BufWritePre * %s/\s\+$//e
+"autocmd BufWritePre * %s/\s\+$//e
 
 " folding - open folds with zo close with zc
 " zr reduces fold depth
