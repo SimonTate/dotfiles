@@ -22,7 +22,7 @@ if filereadable(expand("~/.vim/bundle/Vundle.vim/README.md"))
     "" END VUNDLE
 endif
 
-set relativenumber
+set number
 
 " Tab length control
 set tabstop=4
