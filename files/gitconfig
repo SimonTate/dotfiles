@@ -1,22 +1,36 @@
 [core]
-	editor = vim
+	editor = nvim
 [diff]
 	tool = vimdiff
+	wsErrorHighight = all
 [alias]
-	url = remote -v
 	sh = show
-	cp = cherry-pick
-	clean-all = !git reset --hard && git clean -f -d -x
+	clean-all = !git reset --hard && git clean -fdx && git submodule foreach git clean-all
 	# branch age
 	bage = for-each-ref --sort=authordate --format '%(authordate:iso) %(align:left,25)%(refname:short)%(end) %(subject)' refs/heads
+	mwps = push -o merge_request.create
+	mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2'
+	tb = "!f() { git fetch origin && git tag -s \"$2\" \"origin/$1\"; git push origin \"$2\"; }; f"
 [difftool]
 	prompt = false
 [include]
 	path = ~/.gitconfig.secret
-[credential]
-	helper = cache --timeout=60000
+[pull]
+	rebase = false
 [filter "lfs"]
+	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-	clean = git-lfs clean -- %f
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
+[tab]
+	gpgsign = true
+[http]
+	postBuffer = 157286400
+[push]
+	autoSetupRemote = true
+[color]
+	ui = auto
